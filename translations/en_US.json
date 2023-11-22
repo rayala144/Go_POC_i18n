@@ -1,0 +1,8 @@
+{
+    "DefaultMessage": {
+      "one": "You're buying 1 cookie.",
+      "other": "You're buying {{.PluralCount}} cookies."
+    },
+    "Greeting": "Hi!! How are you?"
+  }
+  
