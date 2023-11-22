@@ -13,11 +13,11 @@ import (
 //go:generate goi18n extract -sourceLanguage en
 
 func main() {
-	var count int
+	var key string
 	var lang string
 
-	flag.IntVar(&count, "count", 0, "number of items to buy")
-	flag.StringVar(&lang, "lang", "en", "language to use")
+	flag.StringVar(&key, "key", "Greeting", "key to select the string")
+	flag.StringVar(&lang, "lang", "en-US", "language to use")
 
 	flag.Parse()
 
@@ -31,29 +31,16 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error loading en bundle: %v\n", err)
 		os.Exit(1)
 	}
-	if _, err := bundle.LoadMessageFile("translations/es_SP.json"); err != nil {
+	if _, err := bundle.LoadMessageFile("translations/es_ES.json"); err != nil {
 		fmt.Fprintf(os.Stderr, "Error loading es bundle: %v\n", err)
 		os.Exit(1)
 	}
 
 	localizer := i18n.NewLocalizer(bundle, lang)
 
-	// buying := localizer.MustLocalize(&i18n.LocalizeConfig{
-	// 	DefaultMessage: &i18n.Message{
-	// 		ID:    "DefaultMessage",
-	// 		One:   "You're buying 1 cookie.",
-	// 		Other: "You're buying {{.PluralCount}} cookies.",
-	// 	},
-	// 	PluralCount: count,
-	// })
-
-	greeting := localizer.MustLocalize(&i18n.LocalizeConfig{
-		DefaultMessage: &i18n.Message{
-			ID:    "Greeting",
-		},
-		PluralCount: count,
+	config := localizer.MustLocalize(&i18n.LocalizeConfig{
+		MessageID: key,
 	})
 
-	// fmt.Printf("%s\n", buying)
-	fmt.Printf("%s\n", greeting)
+	fmt.Printf("%s\n", config)
 }

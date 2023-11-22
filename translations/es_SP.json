@@ -1,8 +1,0 @@
-{
-    "DefaultMessage": {
-      "one": "Estas comprando 1 galleta.",
-      "other": "Estas comprando {{.PluralCount}} galletas."
-    },
-    "Greeting": "¡Hola! ¿Cómo estás?"
-  }
-  
