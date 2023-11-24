@@ -1,4 +1,6 @@
 {
-    "Greeting": "¡Hola! ¿Cómo estás?",
-    "SendOff": "¡¡Gracias por venir!!"
+  "Greeting": "¡Hola! ¿Cómo estás?",
+  "SendOff": "¡¡Gracias por venir!!",
+  "connectNotWork": "conector no funciona",
+  "connectorWorksFine": "El conector funciona bien"
 }
